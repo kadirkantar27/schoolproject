@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Giriş Sayfası</title>
+</head>
+
+<body>
+
+    <h2>KEBBS</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#" id="signUpForm">
+                <h1>Hesap Oluştur</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>kayıt için email de kullanabilirsin</span>
+                <input type="text" placeholder="İsim" id="name_register" />
+                <input type="email" placeholder="Email" id="email_register" />
+                <input type="password" placeholder="Parola" id="password_register" />
+                <button type="button" id="signUpBtn">ÜYE OL</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Giriş Yap</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>başka hesabını kullanabilirsin</span>
+                <input type="email" placeholder="Email" id="login_email" />
+                <input type="password" placeholder="Parola" id="login_password" />
+                <a href="#">Parolanı mı unuttun?</a>
+                <button type="button" id="loginBtn" name="login_btn">GİRİŞ YAP</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Tekrar Hoşgeldin</h1>
+                    <p>Eğer daha önce kayıt olduysan kişisel bilgilerinle giriş yapabilirsin</p>
+                    <button class="ghost" id="signIn">GİRİŞ YAP</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Merhaba, Hoşgeldin</h1>
+                    <p>Kişisel bilgilerinle üye olarak dünyamıza giriş yapabilirsin</p>
+                    <button class="ghost" id="signUp">ÜYE OL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/c2da3199bf.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var signUpBtn = document.getElementById('signUpBtn');
+            signUpBtn.addEventListener('click', function () {
+                var nameValue = document.getElementById('name_register').value;
+                var emailValue = document.getElementById('email_register').value;
+                var passwordValue = document.getElementById('password_register').value;
+                var url = "http://localhost:8012/schoolproject/index.php?name=" + nameValue + "&email=" + emailValue + "&password=" + passwordValue + "&operation=register";
+
+                fetch(url)
+                    .then(function (response) {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(function (data) {
+                        alert(data)
+                    })
+                    .catch(function (error) {
+                        // Hata durumunda burası çalışır
+                        console.error('Fetch error:', error);
+                    });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            var signUpBtn = document.getElementById('loginBtn');
+            signUpBtn.addEventListener('click', function () {
+                var emailValue = document.getElementById('login_email').value;
+                var passwordValue = document.getElementById('login_password').value;
+                var url = "http://localhost:8012/schoolproject/index.php?email=" + emailValue + "&password=" + passwordValue + "&operation=login";
+
+                fetch(url)
+                    .then(function (response) {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(function (data) {
+                        alert(data.toString)
+                    })
+                    .catch(function (error) {
+                        // Hata durumunda burası çalışır
+                        console.error('Fetch error:', error);
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>
