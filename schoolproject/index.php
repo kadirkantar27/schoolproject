@@ -45,7 +45,7 @@ if ($operation == 'register') {
     }
 
     // GİRİŞ İŞLEMİ $operation == 'login'
-} elseif ($operation == 'login') { 
+} elseif ($operation == 'login') {
     $email = $_GET['email'];
     $password = $_GET['password'];
 

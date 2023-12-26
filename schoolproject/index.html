@@ -87,8 +87,8 @@
             });
         });
         document.addEventListener('DOMContentLoaded', function () {
-            var signUpBtn = document.getElementById('loginBtn');
-            signUpBtn.addEventListener('click', function () {
+            var loginBtn = document.getElementById('loginBtn');
+            loginBtn.addEventListener('click', function () {
                 var emailValue = document.getElementById('login_email').value;
                 var passwordValue = document.getElementById('login_password').value;
                 var url = "http://localhost:8012/schoolproject/index.php?email=" + emailValue + "&password=" + passwordValue + "&operation=login";
@@ -101,14 +101,19 @@
                         return response.text();
                     })
                     .then(function (data) {
-                        alert(data.toString)
+                        if (data.trim() === "ok") {
+                            // Redirect to anasayfa.html
+                            window.location.href = "homepage.php";
+                        } else {
+                            alert("Login failed: " + data);
+                        }
                     })
                     .catch(function (error) {
-                        // Hata durumunda burası çalışır
                         console.error('Fetch error:', error);
                     });
             });
         });
+
     </script>
 </body>
 
