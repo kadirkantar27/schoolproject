@@ -1,15 +1,15 @@
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ANASAYFA</title>
     <link rel="stylesheet" href="styleHome.css">
+    <link rel="stylesheet" href="styleAnket.css">
     <script src="scriptHome.js" defer></script>
-    <script src="scriptPoll.js" defer></script>
+    <script src="scriptAnket.js" defer></script>
+    <script src="scriptDayClicked.js"defer></script>
 </head>
-
 <body>
 
     <nav class="navbar">
@@ -68,59 +68,73 @@
             </div>
             <div class="wrapper">
                 <header>Toplantı Ne Zaman Olsun?</header>
-                <div class="poll-area">
-                <input type="checkbox" name="poll" id="opt-1">
-                <input type="checkbox" name="poll" id="opt-2">
-                <input type="checkbox" name="poll" id="opt-3">
-                <input type="checkbox" name="poll" id="opt-4">
-                <label for="opt-1" class="opt-1">
-                    <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">HTML</span>
+                <form id="anketForm">
+                    <div class="poll-area">
+                    <input type="checkbox" name="poll" id="opt-1">
+                    <input type="checkbox" name="poll" id="opt-2">
+                    <input type="checkbox" name="poll" id="opt-3">
+                    <input type="checkbox" name="poll" id="opt-4">
+                    <input type="checkbox" name="poll" id="opt-5">
+                    <input type="checkbox" name="poll" id="opt-6">
+                    <input type="checkbox" name="poll" id="opt-7">
+                    <input type="checkbox" name="poll" id="opt-8">
+
+                    <div>
+                        <label for="opt-1" class="opt-1">
+                            <div class="row">
+                                <div class="column">
+                                    <span class="circle"></span>
+                                    <span class="text">Gün Seçiniz</span>
+                                </div>
+                            </div>
+                        </label>
                     </div>
-                    <span class="percent">30%</span>
+                    <div>
+                        <label for="opt-2" class="opt-2">
+                            <div class="row">
+                                <div class="column">
+                                    <span class="circle"></span>
+                                    <span class="text">Gün Seçiniz</span>
+                                </div>
+                            </div>
+                        </label>
+                        
+                    </div>             
+                    <div id="sorularContainer">
+                    <!-- Kullanıcı buraya soru ekleyebilir -->
                     </div>
-                    <div class="progress" style='--w:30;'></div>
-                </label>
-                <label for="opt-2" class="opt-2">
-                    <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">Java</span>
-                    </div>
-                    <span class="percent">20%</span>
-                    </div>
-                    <div class="progress" style='--w:20;'></div>
-                </label>
-                <label for="opt-3" class="opt-3">
-                    <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">Python</span>
-                    </div>
-                    <span class="percent">40%</span>
-                    </div>
-                    <div class="progress" style='--w:40;'></div>
-                </label>
-                <label for="opt-4" class="opt-4">
-                    <div class="row">
-                    <div class="column">
-                        <span class="circle"></span>
-                        <span class="text">jQuery</span>
-                    </div>
-                    <span class="percent">10%</span>
-                    </div>
-                    <div class="progress" style='--w:10;'></div>
-                </label>
-                </div>
+                    <button type="button" id="addDays" class="ekle-btn" onclick="soruEkle()">Gün Ekle</button>
+                </form>              
             </div>
         </div>
-
     </div>
-
-  
+ 
     <script src="https://kit.fontawesome.com/98c0038808.js" crossorigin="anonymous"></script>
+
+<script>
+    var soruSayisi = 2;
+
+    function soruEkle() {
+        soruSayisi++;
+
+        var sorularContainer = document.getElementById("sorularContainer");
+
+        var div = document.createElement("div");
+        div.innerHTML = `
+        <div class="days">
+        <label for="opt-${soruSayisi}" class="opt-${soruSayisi}">
+            <div class="row">
+            <div class="column">
+                <span class="circle"></span>
+                <span class="text">Gün Seçiniz</span>
+            </div>
+            </div>
+        </label>
+        </div>
+        `;
+        sorularContainer.appendChild(div);
+    }
+</script>
 
 </body>
 

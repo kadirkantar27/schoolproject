@@ -429,19 +429,34 @@ a {
   }
   .poll-area label{
     display: block;
+    width: 500px;
     margin-bottom: 10px;
     border-radius: 5px;
     padding: 8px 15px;
     border: 2px solid #e6e6e6;
     transition: all 0.2s ease;
   }
+
+  label .row .icon-circle{
+    height: 19px;
+    width: 19px;
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position:flex;
+
+  }
+
+  
+
   .poll-area label:hover{
     border-color: #ddd;
   }
   label.selected{
     border-color: #6665ee!important;
   }
-  label .row{
+   label .row{
     display: flex;
     pointer-events: none;
     justify-content: space-between;
@@ -449,15 +464,15 @@ a {
   label .row .column{
     display: flex;
     align-items: center;
-  }
+  } 
   label .row .circle{
     height: 19px;
     width: 19px;
-    display: block;
+    display: flex;
     border: 2px solid #ccc;
     border-radius: 50%;
     margin-right: 10px;
-    position: relative;
+    position:flex;
   }
   label.selected .row .circle{
     border-color: #6665ee;
@@ -471,20 +486,20 @@ a {
     position: absolute;
     left: 2px;
     top: 2px;
-    display: none;
+    display: flexbox;
   }
   .poll-area label:hover .row .circle::after{
-    display: block;
+    display: flex;
     background: #e6e6e6;
   }
   label.selected .row .circle::after{
-    display: block;
+    display: flex;
     background: #6665ee!important;
   }
-  label .row span{
+   label .row span{
     font-size: 16px;
     font-weight: 500;
-  }
+  } 
   label .row .percent{
     display: none;
   }
@@ -513,8 +528,27 @@ a {
   label.selectall .progress,
   label.selectall .row .percent{
     display: block;
-  }
+  } 
   input[type="radio"],
   input[type="checkbox"]{
     display: none;
   }
+
+
+  form {
+    display: grid;
+    gap: 10px;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid #9181CA;
+	background-color: #9181CA;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
