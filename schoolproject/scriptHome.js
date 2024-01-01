@@ -82,6 +82,7 @@ const generateCalendar = (month, year) => {
             }
         }
         calendar_days.appendChild(day);
+        day.classList.add('selectedDay');
     }
 };
 
@@ -153,3 +154,5 @@ setInterval(() => {
     )}: ${`${timer.getSeconds()}`.padStart(2, '0')}`;
     todayShowTime.textContent = formateTimer;
 }, 1000);
+
+
