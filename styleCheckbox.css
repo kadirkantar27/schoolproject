@@ -1,0 +1,83 @@
+div {
+    margin-bottom: 10px;
+}
+
+input[type="submit"]{
+    background: #3494E6;
+    color: #fff;
+    width: 80px;
+    height: 40px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+}
+input[type="submit"]:hover {
+    background: #016ABC;
+    color: #fff;
+    width: 80px;
+    height: 40px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px #eee;
+    text-shadow: none;
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    /* ...existing styles */
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.form-control {
+  font-family: system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+
+.form-soru {
+    font-family: system-ui, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.1;
+    gap: 0.5em;
+
+}
+
+
